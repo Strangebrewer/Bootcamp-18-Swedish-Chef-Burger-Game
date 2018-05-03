@@ -1,0 +1,15 @@
+<h3>Order a Byurger</h3>
+<form class="create-form">
+  <div class="form-group">
+    <div class="customer-group">
+      <select onchange="dinerOptions()" name="customer-drop" id="diner-name">
+        <option class="default-option" value="none-selected">Select an option</option>
+        <option value="new-diner-option">Sign up!</option>
+        {{#each diners}}
+        <option value="{{id}}" name="{{diner_name}}">{{diner_name}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <div class="field-group"></div>
+  </div>  
+</form>

@@ -1,0 +1,26 @@
+<h2>Swedish Chef's</h2>
+<h1>Fyurgen Byurgers</h1>
+
+<img src="assets/images/chef.png" alt="swedish chef">
+
+<div class="burger-wrapper">
+  <div class="burgers-ready">
+    <h3>Byurgers ready to eat</h3>
+
+    <ul>
+      {{#each burgers}} {{#unless devoured}} {{> burgers/burger-block devoured=true}} {{/unless}} {{/each}}
+    </ul>
+  </div>
+
+  <div class="burgers-eaten">
+    <h3>Byurgers eaten</h3>
+
+    <ul>
+      {{#each burgers}} {{#if devoured}} {{> burgers/eaten-block devoured=false}} {{/if}} {{/each}}
+    </ul>
+  </div>
+</div>
+
+<div class="order-form">
+  {{> burgers/order-block}}
+</div>

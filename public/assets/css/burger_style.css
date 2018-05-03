@@ -1,0 +1,177 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+}
+
+html {
+  font-family: 'Handlee', Arial, Helvetica, sans-serif;
+  text-align: center;
+  color: #fbff00;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: linear-gradient(#000, #ff7b0094);
+}
+
+h1 {
+  color: #0dff00;
+  font-family: 'Playfair Display SC', 'Times New Roman', Times, serif;
+  font-size: 5em;
+  font-weight: bold;
+  line-height: .8;
+  margin: 0 0 30px 0;
+}
+
+h2 {
+  margin: 20px 0 0 0;
+  font-size: 2.2em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#add-burger, #add-customer {
+  margin-top: 10px;
+}
+
+img {
+  height: 200px;
+  margin-bottom: -5px;
+}
+
+.burger-wrapper {
+  display: flex;
+  width: 800px;
+  margin: auto;
+  text-align: left;
+  border: 1px solid #b700ff;
+  background: #ffb7007e;
+  padding: 20px 0;
+}
+
+.burgers-ready, .burgers-eaten {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.burger-wrapper h3 {
+  text-align: center;
+  margin: 0;
+}
+
+.buttons {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+button, #add-burger, #add-customer {
+  font-size: 12px;
+  background: #00ffd0;
+  color: #111;
+  margin: 2px 0;
+  border-radius: 10px;
+}
+
+ul {
+  margin: 0;
+}
+
+li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li p {
+  display: inline-block;
+  width: 230px;
+  padding: 10px 5px 10px 10px;
+  border: 1px solid blue;
+  border-radius: 10px;
+  background-color: #242424;
+  color: rgb(255, 0, 0);
+}
+
+.order-form input {
+  display: block;
+  margin: auto;
+}
+
+#add-burger, #add-customer {
+  margin: 5px auto 0 auto;
+}
+
+.change-devoured, .delete-burger  {
+  margin-left: 10px;
+}
+
+@media (max-width: 850px) {
+  .burger-wrapper {
+    display: block;
+    width: 400px;
+  }
+}
+
+@media (max-width: 450px) {
+  .burger-wrapper {
+    display: block;
+    width: 300px;
+  }
+  .burgers-ready, .burgers-eaten {
+    width: 300px;
+  }
+  li p {
+    width: 160px;
+    font-size: 12px;
+  }
+  button, #add-burger, #add-customer {
+    font-size: 9px;
+  }
+  h1 {
+    font-size: 3.5em;
+  }
+  h2 {
+    font-size: 1.8em;
+  }  
+  h3 {
+    font-size: 1.2em;
+  }
+}
+
+@media (max-width: 340px) {
+  .burger-wrapper {
+    width: 290px;
+  }
+  .burgers-ready, .burgers-eaten {
+    width: 290px;
+  }
+  li p {
+    width: 150px;
+    font-size: 11px;
+  }
+  button, #add-burger, #add-customer {
+    font-size: 9px;
+  }
+  h1 {
+    font-size: 3.5em;
+  }
+  h2 {
+    font-size: 1.6em;
+  }  
+  h3 {
+    font-size: 1.2em;
+  }
+}
