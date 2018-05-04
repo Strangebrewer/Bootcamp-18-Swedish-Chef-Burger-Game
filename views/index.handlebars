@@ -3,7 +3,7 @@
 
 <img class="chef-img" src="assets/images/chef.png" alt="swedish chef">
 
-{{!-- image modal --}}
+{{!-- Bootstrap modal --}}
 <div class="modal fade" id="img-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -25,30 +25,39 @@
 
 
 <div class="burger-wrapper">
+
   <div class="burgers-ready">
-    <h3>Byurgers ready to eat</h3>
+    <div class="underline">
+      <h3>Byurgers ready to eat</h3>
+    </div>
+
 
     <ul>
       {{#each data}}
-        {{> burgers/burger-block devoured=true}}
+        {{> burger-block devoured=true}}
       {{/each}}
-    </ul>
+    </ul>    
   </div>
 
   <div class="burgers-eaten">
-    <h3>Byurgers eaten</h3>
+    <div class="underline">
+      <h3>Byurgers eaten</h3>
+    </div>
 
     <ul>
       {{#each data}}
-          {{> burgers/eaten-block devoured=false}}
+          {{> eaten-block devoured=false}}
       {{/each}}
     </ul>
   </div>
+
+</div>
+<div class="warning-text">
+  <p>Once you're full, you can't order any more. You can finish eating all you've ordered, but be careful, you might &nbsp;<span id="flash-red">explode!</span></p>
+  <p>But if instead you leave with burgers still in your queue, we'll donate them to charity.</p>
 </div>
 
-<p>Once you're full, you can't order any more. You can finish eating all you've ordered, but be careful, you might esplode!</p>
-<p>But if instead you leave with burgers still in your queue, we'll donate them to charity.</p>
 
 <div class="order-form">
-  {{> burgers/order-block}}
+  {{> order-block}}
 </div>

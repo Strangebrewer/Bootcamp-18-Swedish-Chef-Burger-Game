@@ -45,7 +45,12 @@ h2 {
 
 h3 {
   font-size: 1.5em;
-  text-decoration: underline;
+}
+
+.underline {
+  width: 250px;
+  margin: 0 auto 10px auto;
+  border-bottom: 2px solid #b700ff;
 }
 
 h4 {
@@ -64,7 +69,7 @@ label {
 
 .chef-img {
   height: 200px;
-  margin-bottom: -5px;
+  /* margin-bottom: -5px; */
 }
 
 .esplode-img {
@@ -90,8 +95,21 @@ label {
   padding: 20px 0;
 }
 
+.warning-text {
+  margin: 20px auto;
+  max-width: 800px;
+}
+
+.warning-text p {
+  font-size: 17px;
+  margin: 5px;
+  text-shadow: 0 0 20px #000000;
+  color: #fbff00;
+}
+
 .burgers-ready, .burgers-eaten {
   width: 400px;
+  min-height: 200px;
   margin: 0 auto;
 }
 
@@ -121,6 +139,20 @@ ul>li>ul {
   width: 200px;
 }
 
+#flash-red {
+  font-size: 22px;
+  font-weight: bold;
+  color: #ce0000;  
+  text-shadow: 0 0 20px #ffffff;
+}
+
+.full-warning {
+  animation: blink 1s;
+  animation-iteration-count: infinite;
+  color: #ff0000;
+  font-weight: bold;
+}
+
 li {
   list-style-type: none;
   margin: 0;
@@ -128,7 +160,6 @@ li {
 }
 
 .exit-btn-div {
-  /* display: inline-block; */
   float: right;
   vertical-align: middle;
 }
@@ -159,9 +190,30 @@ li p, .li-div {
   margin-left: 10px;
 }
 
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: .3;
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    opacity: .3;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 @media (max-width: 850px) {
   .burger-wrapper {
     display: block;
+    width: 400px;
+  }
+  .warning-text {
     width: 400px;
   }
 }
@@ -170,6 +222,12 @@ li p, .li-div {
   .burger-wrapper {
     display: block;
     width: 300px;
+  }
+  .warning-text {
+    width: 290px;
+  }
+  .warning-text p {
+    font-size: 15px;
   }
   .burgers-ready, .burgers-eaten {
     width: 300px;

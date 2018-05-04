@@ -7,30 +7,14 @@ $(function () {
     var a = Math.round(Math.random());
 
     if (isFull === "true") {
-      if (a === 1) {
-        //  populate modal
-        //  delete Diner
-        var esplodedImg = $("<img>");
-        esplodedImg.addClass("esplode-img");
-        esplodedImg.attr("src", "assets/images/esplode.png");
-        $("#modal-title").html("You esploded!");
-        $(".modal-body").html(esplodedImg);
-        $("#img-modal").modal({ "show": true });
 
-        $('#img-modal').on('hidden.bs.modal', function (e) {
-          $.ajax(`/api/diners/${dinerId}`, {
-            type: "DELETE"
-          })
-            .then(function () {
-              console.log(`Deleted burger #${dinerId}`);
-              changeDevour(id, dinerId);
-              location.reload();
-            });
-        });
+      if (a === 1) {
+        esplodeDiner(dinerId);
       }
       else {
         changeDevour(id, dinerId);
       }
+
     }
     else {
       changeDevour(id, dinerId);
@@ -85,6 +69,25 @@ $(function () {
   });
 
 });
+
+function esplodeDiner(dinerId) {
+  var esplodedImg = $("<img>");
+  esplodedImg.addClass("esplode-img");
+  esplodedImg.attr("src", "assets/images/esplode.png");
+  $("#modal-title").html("You exploded!");
+  $(".modal-body").html(esplodedImg);
+  $("#img-modal").modal({ "show": true });
+
+  $('#img-modal').on('hidden.bs.modal', function (e) {
+    $.ajax(`/api/diners/${dinerId}`, {
+      type: "DELETE"
+    })
+      .then(function () {
+        console.log(`Deleted burger #${dinerId}`);
+        location.reload();
+      });
+  });
+}
 
 function changeDevour(id, dinerId) {
   var newDevourState = {
