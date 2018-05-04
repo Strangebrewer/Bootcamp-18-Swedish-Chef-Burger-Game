@@ -8,12 +8,12 @@ module.exports = function (sequelize, DataTypes) {
       defaultValue: false
     }
   }, {
-    timestamps: null
-  });
+      timestamps: null
+    });
 
-  Diner.associate = function(models) {
+  Diner.associate = function (models) {
     Diner.hasMany(models.Burger, {
-      onDelete: "cascade"
+      // onDelete: "cascade"
     });
   }
 

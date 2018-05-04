@@ -1,23 +1,40 @@
 $(function () {
 
-  $(".change-devoured").on("click", function (event) {
+  $(".devour").on("click", function (event) {
     var id = $(this).data("id");
-    var newDevoured = $(this).data("newdevoured");
-    console.log(id);
+    var dinerId = $(this).data("diner-id");
+    var isFull = $(this).val();
+    var a = Math.round(Math.random());
 
-    var newDevourState = {
-      devoured: newDevoured
-    };
-    console.log(newDevoured);
+    if (isFull === "true") {
+      if (a === 1) {
+        //  populate modal
+        //  delete Diner
+        var esplodedImg = $("<img>");
+        esplodedImg.addClass("esplode-img");
+        esplodedImg.attr("src", "assets/images/esplode.png");
+        $("#modal-title").html("You esploded!");
+        $(".modal-body").html(esplodedImg);
+        $("#img-modal").modal({ "show": true });
 
-    $.ajax(`/api/burgers/${id}`, {
-      type: "PUT",
-      data: newDevourState
-    })
-      .then(function () {
-        console.log(`Changed devoured state to ${newDevoured}`);
-        location.reload();
-      });
+        $('#img-modal').on('hidden.bs.modal', function (e) {
+          $.ajax(`/api/diners/${dinerId}`, {
+            type: "DELETE"
+          })
+            .then(function () {
+              console.log(`Deleted burger #${dinerId}`);
+              changeDevour(id, dinerId);
+              location.reload();
+            });
+        });
+      }
+      else {
+        changeDevour(id, dinerId);
+      }
+    }
+    else {
+      changeDevour(id, dinerId);
+    }
 
   });
 
@@ -26,7 +43,7 @@ $(function () {
     //  select the value attribute:
     var dropdown = $("#diner-name").attr("name");
     var newDinerId = $("#diner-name").val();
-    
+
     var newBurger = {
       burger_name: $("#new-burger").val().trim(),
       DinerId: parseInt(newDinerId)
@@ -41,7 +58,7 @@ $(function () {
   });
 
   $(".field-group").on("click", "#add-customer", function (event) {
-    event.preventDefault();   
+    event.preventDefault();
     var newDiner = {
       diner: $("#diner-name-input").val().trim()
     };
@@ -54,10 +71,10 @@ $(function () {
 
   });
 
-  $(".delete-burger").on("click", function (event) {
+  $(".exit").on("click", function (event) {
     var id = $(this).attr("data-id");
     console.log(id);
-    $.ajax(`/api/burgers/${id}`, {
+    $.ajax(`/api/diners/${id}`, {
       type: "DELETE"
     })
       .then(function () {
@@ -69,10 +86,35 @@ $(function () {
 
 });
 
+function changeDevour(id, dinerId) {
+  var newDevourState = {
+    devoured: true
+  };
+  $.ajax(`/api/burgers/${id}`, {
+    type: "PUT",
+    data: newDevourState
+  })
+    .then(function () {
+      var x = Math.round(Math.random());
+      if (x === 1) {
+        var dinerFull = true;
+        $.ajax(`/api/diners/${dinerId}`, {
+          type: "PUT",
+          data: { full: true }
+        })
+          .then(function () {
+            location.reload();
+          });
+      } else {
+        location.reload();
+      }
+    });
+}
+
 function dinerOptions() {
   var dropdown = $("#diner-name").val();
   var cGrp = $(".field-group");
-  var newCustLabel = $(`<label for='diner-name'>Diner Name:</label>`);
+  var newCustLabel = $(`<label for='diner-name'>Your Name:</label>`);
   var newCustInput = $(`<input type='text' id='diner-name-input' name='diner-name'>`);
   var newBurgLabel = $(`<label for='new-burger'>Byurger Name:</label>`);
   var newBurgInput = $(`<input type='text' id='new-burger' name='burger-name'>`);

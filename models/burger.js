@@ -8,16 +8,17 @@ module.exports = function (sequelize, DataTypes) {
       defaultValue: false
     }
   }, {
-    timestamps: null
-  });
+      timestamps: null
+    });
 
-  Burger.associate = function(models) {
+  Burger.associate = function (models) {
     Burger.belongsTo(models.Diner, {
       foreignKey: {
         allowNull: false
-      }
+      },
+      onDelete: "cascade"
     });
   }
-  
+
   return Burger;
 };

@@ -2,11 +2,6 @@
   box-sizing: border-box;
 }
 
-html, body {
-  width: 100%;
-  min-height: 100%;
-}
-
 html {
   font-family: 'Handlee', Arial, Helvetica, sans-serif;
   text-align: center;
@@ -14,10 +9,19 @@ html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   margin: 0;
   padding: 0;
   min-height: 100vh;
   background: linear-gradient(#000, #ff7b0094);
+}
+
+.main-content {
+  flex: 1 0 auto;
+  font-family: 'Handlee', Arial, Helvetica, sans-serif;
+  text-align: center;
+  color: #fbff00;
 }
 
 h1 {
@@ -27,6 +31,7 @@ h1 {
   font-weight: bold;
   line-height: .8;
   margin: 0 0 30px 0;
+  text-align: center;
 }
 
 h2 {
@@ -34,26 +39,49 @@ h2 {
   font-size: 2.2em;
 }
 
+/* .order-form h2 {
+  margin-bottom: -20px;
+} */
+
 h3 {
   font-size: 1.5em;
+  text-decoration: underline;
+}
+
+h4 {
+  font-size: 1.3em;
+  margin-bottom: 5px;
 }
 
 label {
   display: block;
-  margin-bottom: 5px;
+  margin-top: 5px;
 }
 
 #add-burger, #add-customer {
   margin-top: 10px;
 }
 
-img {
+.chef-img {
   height: 200px;
   margin-bottom: -5px;
 }
 
+.esplode-img {
+  max-width: 400px;
+}
+
+.modal-content {
+  background: #111;
+}
+
+/* .modal-body {
+  background: 
+} */
+
 .burger-wrapper {
   display: flex;
+  min-height: 300px;
   width: 800px;
   margin: auto;
   text-align: left;
@@ -72,11 +100,6 @@ img {
   margin: 0;
 }
 
-.buttons {
-  display: inline-block;
-  vertical-align: middle;
-}
-
 button, #add-burger, #add-customer {
   font-size: 12px;
   background: #00ffd0;
@@ -89,20 +112,36 @@ ul {
   margin: 0;
 }
 
+ul>li>ul {
+  margin-left: -10px;
+}
+
+.burger-li {
+  display: inline-block;
+  width: 200px;
+}
+
 li {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-li p {
+.exit-btn-div {
+  /* display: inline-block; */
+  float: right;
+  vertical-align: middle;
+}
+
+li p, .li-div {
+  margin: 16px 0;
   display: inline-block;
-  width: 230px;
-  padding: 10px 5px 10px 10px;
+  width: 90%;
+  padding: 10px 20px;
   border: 1px solid blue;
   border-radius: 10px;
   background-color: #242424;
-  color: rgb(255, 0, 0);
+  color: #ff6a6a;
 }
 
 .order-form input {
@@ -111,10 +150,12 @@ li p {
 }
 
 #add-burger, #add-customer {
+  font-family: Arial, Helvetica, sans-serif;
   margin: 5px auto 0 auto;
 }
 
-.change-devoured, .delete-burger  {
+.devour, .exit {
+  font-family: Arial, Helvetica, sans-serif;
   margin-left: 10px;
 }
 
@@ -145,7 +186,7 @@ li p {
   }
   h2 {
     font-size: 1.8em;
-  }  
+  }
   h3 {
     font-size: 1.2em;
   }
@@ -170,7 +211,7 @@ li p {
   }
   h2 {
     font-size: 1.6em;
-  }  
+  }
   h3 {
     font-size: 1.2em;
   }

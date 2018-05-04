@@ -1,15 +1,19 @@
 <li>
-  <p>
-    {{id}}. {{burger_name}}
-  </p>
-
-  <div class="buttons">
-    <button class="change-devoured" data-id="{{id}}" data-newdevoured="{{devoured}}">
-      Order Another!
-    </button>
-    <br>
-    <button class="delete-burger" data-id="{{this.id}}">Delete!</button>
+  <div class="li-div">
+      Eaten by {{diner.diner_name}} {{#if diner.full}} ( full! ) {{/if}}
+    <div class="exit-btn-div">
+      <button class="exit" data-id="{{diner.id}}">I'm done</button>
+    </div>
   </div>
 
+  <ul>
+    {{#each burgers}} {{#if devoured}}
+    <li>
+      <div class="burger-li">
+        {{id}}. {{burger_name}}
+      </div>
+    </li>
+    {{/if}} {{/each}}
+  </ul>
 
 </li>

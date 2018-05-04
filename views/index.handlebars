@@ -1,14 +1,37 @@
 <h2>Swedish Chef's</h2>
 <h1>Fyurgen Byurgers</h1>
 
-<img src="assets/images/chef.png" alt="swedish chef">
+<img class="chef-img" src="assets/images/chef.png" alt="swedish chef">
+
+{{!-- image modal --}}
+<div class="modal fade" id="img-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal-title"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="false">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <div class="burger-wrapper">
   <div class="burgers-ready">
     <h3>Byurgers ready to eat</h3>
 
     <ul>
-      {{#each burgers}} {{#unless devoured}} {{> burgers/burger-block devoured=true}} {{/unless}} {{/each}}
+      {{#each data}}
+        {{> burgers/burger-block devoured=true}}
+      {{/each}}
     </ul>
   </div>
 
@@ -16,10 +39,15 @@
     <h3>Byurgers eaten</h3>
 
     <ul>
-      {{#each burgers}} {{#if devoured}} {{> burgers/eaten-block devoured=false}} {{/if}} {{/each}}
+      {{#each data}}
+          {{> burgers/eaten-block devoured=false}}
+      {{/each}}
     </ul>
   </div>
 </div>
+
+<p>Once you're full, you can't order any more. You can finish eating all you've ordered, but be careful, you might esplode!</p>
+<p>But if instead you leave with burgers still in your queue, we'll donate them to charity.</p>
 
 <div class="order-form">
   {{> burgers/order-block}}
