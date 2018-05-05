@@ -1,6 +1,6 @@
 $(function () {
 
-  $(".devour").on("click", function (event) {
+  $(".devour-btn").on("click", function (event) {
     var id = $(this).data("id");
     var dinerId = $(this).data("diner-id");
     var isFull = $(this).val();

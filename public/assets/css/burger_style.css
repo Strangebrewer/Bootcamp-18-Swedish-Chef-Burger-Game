@@ -2,17 +2,9 @@
   box-sizing: border-box;
 }
 
-html {
-  font-family: 'Handlee', Arial, Helvetica, sans-serif;
-  text-align: center;
-  color: #fbff00;
-}
-
 body {
   display: flex;
   flex-direction: column;
-  margin: 0;
-  padding: 0;
   min-height: 100vh;
   background: linear-gradient(#000, #ff7b0094);
 }
@@ -31,7 +23,6 @@ h1 {
   font-weight: bold;
   line-height: .8;
   margin: 0 0 30px 0;
-  text-align: center;
 }
 
 h2 {
@@ -39,18 +30,8 @@ h2 {
   font-size: 2.2em;
 }
 
-/* .order-form h2 {
-  margin-bottom: -20px;
-} */
-
 h3 {
   font-size: 1.5em;
-}
-
-.underline {
-  width: 250px;
-  margin: 0 auto 10px auto;
-  border-bottom: 2px solid #b700ff;
 }
 
 h4 {
@@ -58,18 +39,8 @@ h4 {
   margin-bottom: 5px;
 }
 
-label {
-  display: block;
-  margin-top: 5px;
-}
-
-#add-burger, #add-customer {
-  margin-top: 10px;
-}
-
 .chef-img {
   height: 200px;
-  /* margin-bottom: -5px; */
 }
 
 .esplode-img {
@@ -80,10 +51,6 @@ label {
   background: #111;
 }
 
-/* .modal-body {
-  background: 
-} */
-
 .burger-wrapper {
   display: flex;
   min-height: 300px;
@@ -93,18 +60,6 @@ label {
   border: 1px solid #b700ff;
   background: #ffb7007e;
   padding: 20px 0;
-}
-
-.warning-text {
-  margin: 20px auto;
-  max-width: 800px;
-}
-
-.warning-text p {
-  font-size: 17px;
-  margin: 5px;
-  text-shadow: 0 0 20px #000000;
-  color: #fbff00;
 }
 
 .burgers-ready, .burgers-eaten {
@@ -118,20 +73,19 @@ label {
   margin: 0;
 }
 
-button, #add-burger, #add-customer {
-  font-size: 12px;
-  background: #00ffd0;
-  color: #111;
-  margin: 2px 0;
-  border-radius: 10px;
-}
-
-ul {
-  margin: 0;
+.underline {
+  width: 80%;
+  padding-bottom: 5px;
+  margin: auto;
+  border-bottom: 2px solid #b700ff;
 }
 
 ul>li>ul {
-  margin-left: -10px;
+  margin-left: -15px;
+}
+
+.devour-btn {
+  margin-left: 10px;
 }
 
 .burger-li {
@@ -139,29 +93,10 @@ ul>li>ul {
   width: 200px;
 }
 
-#flash-red {
-  font-size: 22px;
-  font-weight: bold;
-  color: #ce0000;  
-  text-shadow: 0 0 20px #ffffff;
-}
-
-.full-warning {
-  animation: blink 1s;
-  animation-iteration-count: infinite;
-  color: #ff0000;
-  font-weight: bold;
-}
-
 li {
   list-style-type: none;
   margin: 0;
   padding: 0;
-}
-
-.exit-btn-div {
-  float: right;
-  vertical-align: middle;
 }
 
 li p, .li-div {
@@ -175,19 +110,64 @@ li p, .li-div {
   color: #ff6a6a;
 }
 
-.order-form input {
+.full-warning {
+  animation: blink 1s;
+  animation-iteration-count: infinite;
+  color: #ff0000;
+  font-weight: bold;
+}
+
+.exit-btn-div {
+  float: right;
+  vertical-align: middle;
+}
+
+.rules-text {
+  margin: 20px auto;
+  max-width: 800px;
+}
+
+.rules-text p {
+  font-size: 17px;
+  margin: 5px;
+  text-shadow: 0 0 20px #000000;
+  color: #fbff00;
+}
+
+label {
   display: block;
-  margin: auto;
+  margin: 15px 0 0 0;
+}
+
+input, select {
+  background: #242424;
+  color: #ff6a6a;
+  border-radius: 5px;
+  padding: 3px;
+  width: 250px;
+  display: block;
+  margin: 0 auto;
+}
+
+#splode-red {
+  font-size: 22px;
+  font-weight: bold;
+  color: #ce0000;  
+  text-shadow: 0 0 20px #ffffff;
+}
+
+button, #add-burger, #add-customer {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  background: #00ffd5;
+  color: #111;
+  margin: 2px 0;
+  border-radius: 10px;
 }
 
 #add-burger, #add-customer {
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 5px auto 0 auto;
-}
-
-.devour, .exit {
-  font-family: Arial, Helvetica, sans-serif;
-  margin-left: 10px;
+  margin: 10px auto 0 auto;
+  width: 60px;
 }
 
 @keyframes blink {

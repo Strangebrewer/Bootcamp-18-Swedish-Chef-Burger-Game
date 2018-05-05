@@ -5,7 +5,8 @@ USE sequelized_burgers_db;
 
 INSERT INTO diners (diner_name)
 VALUES ("Dave"),
-("Fatty");
+("Fatty"),
+("Arnold");
 
 INSERT INTO burgers (burger_name, DinerId)
 VALUES ("Pastrami", 1),

@@ -1,7 +1,8 @@
 module.exports = function (sequelize, DataTypes) {
   var Diner = sequelize.define("Diner", {
     diner_name: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull: false
     },
     full: {
       type: DataTypes.BOOLEAN,

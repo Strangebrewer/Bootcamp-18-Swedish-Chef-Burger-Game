@@ -12,9 +12,11 @@ router.get("/", function (req, res) {
 
   //  Get all Diner info from the db - including child (burger) data
   db.Diner.findAll({
-    include: [db.Burger]
+    include: [db.Burger],
+
+    //  Order the results by diner name
+    order: ["diner_name"]
   }).then(function (data) {
-    // console.log(data);
 
     //  loop through the result array
     for (let i = 0; i < data.length; i++) {
@@ -23,13 +25,12 @@ router.get("/", function (req, res) {
       const dinerIs = data[i].dataValues;
 
       //  each diner has an array of burgers associated to them
-      const burgersAre = data[i].Burgers
+      const burgersAre = data[i].Burgers;
 
       //  add a property to each burger object and assign it a value of true or false based on whether the diner is full.
       for (let i = 0; i < burgersAre.length; i++) {
         burgersAre[i].full = dinerIs.full;
       }
-
 
       //  Push to dinersArray for the dropdown list
       dinersArr.push(dinerIs);
@@ -37,7 +38,9 @@ router.get("/", function (req, res) {
       // load up object for each diner
       var dinerObj = {
         diner: dinerIs,
-        burgers: burgersAre
+
+        //  sort the burgers list by burger name using compare() function (declared below)
+        burgers: burgersAre.sort(compare)
       }
 
       //  push each object to the dinerObjectsArray
@@ -45,7 +48,7 @@ router.get("/", function (req, res) {
 
     };
 
-    //  because handlebars.render() takes an object as its second parameter - this could also just be directly put in the render function as {data: dinerObjectsArr}
+    //  Put results into an object because handlebars.render() takes an object as its second parameter - this could also just be put directly into the render function as {data: dinerObjectsArr}
     var hbsObject = {
       data: dinerObjectsArr
     }
@@ -58,6 +61,7 @@ router.get("/", function (req, res) {
     });
 });
 
+//  Create new burger
 router.post("/api/burgers", function (req, res) {
   db.Burger.create(req.body).then(function (result) {
     res.json(result);
@@ -67,6 +71,7 @@ router.post("/api/burgers", function (req, res) {
     });
 });
 
+//  Create new diner
 router.post("/api/diners", function (req, res) {
   db.Diner.create({
     diner_name: req.body.diner
@@ -78,6 +83,7 @@ router.post("/api/diners", function (req, res) {
     });
 });
 
+//  Change something about a diner (in this case, whether they are full)
 router.put("/api/diners/:id", function (req, res) {
   db.Diner.update(req.body, {
     where: {
@@ -95,6 +101,7 @@ router.put("/api/diners/:id", function (req, res) {
     });
 });
 
+//  Change something about a burger (in this case, whether it has been devoured)
 router.put("/api/burgers/:id", function (req, res) {
   db.Burger.update(req.body, {
     where: {
@@ -112,6 +119,7 @@ router.put("/api/burgers/:id", function (req, res) {
     });
 });
 
+//  Delete a diner
 router.delete("/api/diners/:id", function (req, res) {
   db.Diner.destroy({
     where: {
@@ -131,3 +139,9 @@ router.delete("/api/diners/:id", function (req, res) {
 });
 
 module.exports = router;
+
+function compare(a, b) {
+  if (a.burger_name < b.burger_name) return -1;
+  if (a.burger_name > b.burger_name) return 1; 
+  return 0;
+}
