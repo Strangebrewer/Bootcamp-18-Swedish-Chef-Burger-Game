@@ -40,7 +40,11 @@ router.get("/", function (req, res) {
         diner: dinerIs,
 
         //  sort the burgers list by burger name using compare() function (declared below)
-        burgers: burgersAre.sort(compare)
+        burgers: burgersAre.sort(function(a, b) {
+          if (a.burger_name < b.burger_name) return -1;
+          if (a.burger_name > b.burger_name) return 1; 
+          return 0;
+        })
       }
 
       //  push each object to the dinerObjectsArray

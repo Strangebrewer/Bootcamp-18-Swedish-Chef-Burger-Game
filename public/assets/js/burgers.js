@@ -118,9 +118,9 @@ function dinerOptions() {
   var dropdown = $("#diner-name").val();
   var cGrp = $(".field-group");
   var newCustLabel = $(`<label for='diner-name'>Your Name:</label>`);
-  var newCustInput = $(`<input type='text' id='diner-name-input' name='diner-name'>`);
+  var newCustInput = $(`<input type='text' id='diner-name-input' name='diner-name' placeholder='2-12 letters'>`);
   var newBurgLabel = $(`<label for='new-burger'>Byurger Name:</label>`);
-  var newBurgInput = $(`<input type='text' id='new-burger' name='burger-name'>`);
+  var newBurgInput = $(`<input type='text' id='new-burger' name='burger-name' placeholder='2-25 letters'>`);
   var submitBurger = $(`<input type='submit' value='Submit' id='add-burger'>`);
   var submitCust = $(`<input type='submit' value='Submit' id='add-customer'>`)
   console.log(dropdown);

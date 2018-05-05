@@ -2,7 +2,10 @@ module.exports = function (sequelize, DataTypes) {
   var Diner = sequelize.define("Diner", {
     diner_name: {
       type: DataTypes.STRING,
-      allowNull: false
+        allowNull: false,
+      validate: {
+        len: [2, 15]
+      }
     },
     full: {
       type: DataTypes.BOOLEAN,
