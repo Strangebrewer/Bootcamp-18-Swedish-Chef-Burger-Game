@@ -1,12 +1,12 @@
 # 04-Sequelized-Burger-Two
 
-## :mag: Table of Contents :mag:
+## Table of Contents
 
-### [1-Description](https://github.com/Strangebrewer/04-Sequelized-Burger-Two#Description)
-### [2-Technologies](https://github.com/Strangebrewer/04-Sequelized-Burger-Two#Technologies)
-### [3-Challenges](https://github.com/Strangebrewer/04-Sequelized-Burger-Two#Challenges)
-### [4-Future Development](https://github.com/Strangebrewer/04-Sequelized-Burger-Two#Future Development)
-### [5-Contributors](https://github.com/Strangebrewer/04-Sequelized-Burger-Two#Contributors)
+### 1-Description
+### 2-Technologies
+### 3-Challenges
+### 4-Future Development
+### 5-Contributors
 
 ### 1-Description
 A web app designed to explore Sequelize and Handlebars. The original app utilized an extremely simple and custom built ORM and had simpler functionality - basically, creating and eating burgers (I also added the functionality to re-order the same burger or delete it). This app runs on Sequelize, but rather than building a new app from the ground up, I refactored the original app to use Sequelize. This app takes in customer and burger names and stores them in a MySQL database. Each customer has a full status stored as a boolean, and each burger has a devoured status, also stored as a boolean. Each burger is associated to a customer with a foreign id key, and when the customer is deleted, all of their burgers are also deleted.
@@ -42,4 +42,5 @@ This project utilizes the following technologies:
 
 ### 5-Contributors
 - [Keith Allmon](https://github.com/Strangebrewer/)
-> **PS:** If you would like to contribute please contact Keith Allmon on GitHub or at BKAShambala@gmail.com. I welcome both first time contributors and experienced developers with critical feedback. 
+
+**PS:** If you would like to contribute please contact Keith Allmon on GitHub or at BKAShambala@gmail.com. I welcome both first time contributors and experienced developers with critical feedback. 
