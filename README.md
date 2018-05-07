@@ -1,4 +1,4 @@
-# 04-Sequelized-Burger-Two
+# 04-Swedish-Chef-Burger-Game
 
 ## Table of Contents
 
