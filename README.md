@@ -1,4 +1,4 @@
-# 04-Swedish-Chef-Burger-Game
+# Swedish Chef Burger Game
 
 ## Table of Contents
 
@@ -9,7 +9,7 @@
 ### 5-Contributors
 
 ### 1-Description
-A web app designed to explore Sequelize and Handlebars. The original app utilized an extremely simple and custom built ORM and had simpler functionality - basically, creating and eating burgers (I also added the functionality to re-order the same burger or delete it). This app runs on Sequelize, but rather than building a new app from the ground up, I refactored the original app to use Sequelize. This app takes in customer and burger names and stores them in a MySQL database. Each customer has a full status stored as a boolean, and each burger has a devoured status, also stored as a boolean. Each burger is associated to a customer with a foreign id key, and when the customer is deleted, all of their burgers are also deleted.
+Bootcamp assignment - an extension of the previous "Burger App" assignment (check it out on Heroku [here](https://o3-swedish-chef-burger-game.herokuapp.com/). This project was designed to explore Sequelize and Handlebars. The original app utilized an extremely simple and custom built ORM and had simpler functionality - basically, creating and eating burgers (I also added the functionality to re-order the same burger or delete it). This app runs on Sequelize, but rather than building a new app from the ground up, I refactored the original app to use Sequelize. This app takes in customer and burger names and stores them in a MySQL database. Each customer has a full status stored as a boolean, and each burger has a devoured status, also stored as a boolean. Each burger is associated to a customer with a foreign id key, and when the customer is deleted, all of their burgers are also deleted.
 
 When a customer is full, they are removed from the order dropdown menu, and if they continue to eat, they have a (Math.floor(Math.random()) chance of exploding. If they explode, a modal tells them they have exploded, and they are deleted from the database.
 
